@@ -170,9 +170,8 @@ const DADOS = {
     { imagem: "assets/img/depois.jpg", legenda: "Polimento de faróis" },
     { imagem: "assets/img/cristalizacao.jpg", legenda: "Cristalização" },
     { imagem: "assets/img/higienizacao.jpg", legenda: "Higienização interna" },
-    { imagem: "assets/img/exemplo-4.svg", legenda: "Detalhamento completo" },
-    { imagem: "assets/img/exemplo-5.svg", legenda: "Aplicação de cera" },
-    { imagem: "assets/img/exemplo-6.svg", legenda: "Motos também!" },
+    { imagem: "assets/img/detalhamento.jpg", legenda: "Detalhamento completo" },
+    { imagem: "assets/img/motos.jpg", legenda: "Moto também é com a gente" },
   ],
 
   /* --------------------------------------------------- ANTES x DEPOIS */
