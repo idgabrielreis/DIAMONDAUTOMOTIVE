@@ -179,20 +179,31 @@ const DADOS = {
   // deixe "ativo: false".
   antesDepois: {
     ativo: true,
-    // Salve suas duas fotos na pasta assets/img com estes nomes
-    // (ou troque os nomes aqui). Enquanto os arquivos não existirem,
-    // o site mostra a imagem de exemplo sozinho.
-    antes: "assets/img/antes.jpg",
-    depois: "assets/img/depois.jpg",
-    // Texto que aparece acima da comparação:
-    legenda: "Polimento de faróis",
-    // Formato das fotos: "3/4" para foto de celular em pé,
-    // "4/3" ou "16/9" para foto deitada.
-    proporcao: "3/4",
-    // O site corta as sobras da foto (inclusive tarja preta de print
-    // de celular) e mostra o meio dela. Se o farol ficar cortado,
-    // use "center 35%" para subir o corte ou "center 65%" para descer.
-    enquadramento: "center",
+    // Cada bloco { } é uma comparação. Para criar outra, copie um bloco
+    // inteiro, cole abaixo e troque as fotos.
+    //   antes / depois -> arquivos dentro de assets/img
+    //   legenda        -> texto que aparece embaixo da comparação
+    //   proporcao      -> "3/4" para foto de celular em pé,
+    //                     "4/3" ou "16/9" para foto deitada
+    //   enquadramento  -> o site mostra o meio da foto e descarta o resto
+    //                     (inclusive tarja preta de print). Use "center 35%"
+    //                     para subir o corte ou "center 65%" para descer.
+    comparacoes: [
+      {
+        legenda: "Polimento de faróis",
+        antes: "assets/img/antes.jpg",
+        depois: "assets/img/depois.jpg",
+        proporcao: "3/4",
+        enquadramento: "center",
+      },
+      {
+        legenda: "Aplicação de cera",
+        antes: "assets/img/cera-antes.jpg",
+        depois: "assets/img/cera-depois.jpg",
+        proporcao: "3/4",
+        enquadramento: "center",
+      },
+    ],
   },
 
   /* ---------------------------------------------------------- DEPOIMENTOS */

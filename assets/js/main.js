@@ -130,39 +130,58 @@
 
   /* --------------------------------------------------------- antes/depois */
   var ad = D.antesDepois || {};
-  if (ad.ativo) {
-    var box = $("#compare");
+  var pares = (ad.comparacoes || []).filter(function (c) { return c && c.antes && c.depois; });
+  var medidas = [];
+
+  if (ad.ativo && pares.length) {
+    var caixa = $("#compares");
     $("#antesdepois").hidden = false;
-
-    // se a foto ainda não foi colocada na pasta, mostra a imagem de exemplo
-    reserva($("#cmp-antes"), ad.antes, "assets/img/antes.svg");
-    reserva($("#cmp-depois"), ad.depois, "assets/img/depois.svg");
-
-    if (ad.legenda) $("#cmp-legenda").textContent = ad.legenda;
-    if (ad.enquadramento) {
-      $$("#compare .compare__img").forEach(function (img) {
-        img.style.objectPosition = ad.enquadramento;
-      });
-    }
-
-    if (ad.proporcao) {
-      box.style.aspectRatio = ad.proporcao.replace("/", " / ");
-      var parte = ad.proporcao.split("/");
-      if (+parte[0] < +parte[1]) box.classList.add("compare--retrato");
-    }
-
-    var largura = function () {
-      box.style.setProperty("--cmp-w", box.offsetWidth + "px");
-    };
-    largura();
-    window.addEventListener("resize", largura);
-
-    var range = $("#cmp-range");
-    range.addEventListener("input", function () {
-      $("#cmp-top").style.width = range.value + "%";
-      $("#cmp-handle").style.left = range.value + "%";
-    });
+    caixa.classList.toggle("compares--um", pares.length === 1);
+    pares.forEach(function (par) { caixa.appendChild(montaComparacao(par)); });
+    medir();
+    window.addEventListener("resize", medir);
   }
+
+  function montaComparacao(par) {
+    var fig = document.createElement("figure");
+    fig.className = "par reveal";
+    fig.innerHTML =
+      '<div class="compare">' +
+        '<img class="compare__img" alt="Depois do serviço">' +
+        '<div class="compare__top"><img class="compare__img" alt="Antes do serviço"></div>' +
+        '<div class="compare__handle"><span>‹ ›</span></div>' +
+        '<span class="compare__tag compare__tag--l">ANTES</span>' +
+        '<span class="compare__tag compare__tag--r">DEPOIS</span>' +
+        '<input class="compare__range" type="range" min="0" max="100" value="50" ' +
+          'aria-label="Comparar antes e depois">' +
+      "</div>" +
+      (par.legenda ? "<figcaption>" + esc(par.legenda) + "</figcaption>" : "");
+
+    var box   = fig.querySelector(".compare"),
+        fotos = fig.querySelectorAll(".compare__img"),   // 0 = depois (fundo), 1 = antes (topo)
+        topo  = fig.querySelector(".compare__top"),
+        alca  = fig.querySelector(".compare__handle"),
+        barra = fig.querySelector(".compare__range");
+
+    reserva(fotos[0], par.depois, "assets/img/depois.svg");
+    reserva(fotos[1], par.antes,  "assets/img/antes.svg");
+
+    if (par.enquadramento) {
+      fotos[0].style.objectPosition = par.enquadramento;
+      fotos[1].style.objectPosition = par.enquadramento;
+    }
+    if (par.proporcao) box.style.aspectRatio = par.proporcao.replace("/", " / ");
+
+    barra.addEventListener("input", function () {
+      topo.style.width = barra.value + "%";
+      alca.style.left  = barra.value + "%";
+    });
+
+    medidas.push(function () { box.style.setProperty("--cmp-w", box.offsetWidth + "px"); });
+    return fig;
+  }
+
+  function medir() { medidas.forEach(function (f) { f(); }); }
 
   /* ------------------------------------------------------------- lightbox */
   var lb = $("#lightbox"), lbImg = $("#lb-img"), lbCap = $("#lb-cap"), atual = 0;
