@@ -167,7 +167,7 @@ const DADOS = {
   // Dá para ajustar o corte de uma foto específica acrescentando
   // posicao, ex: { imagem: "...", legenda: "...", posicao: "center 30%" }
   galeria: [
-    { imagem: "assets/img/exemplo-1.svg", legenda: "Polimento + cristalização" },
+    { imagem: "assets/img/depois.jpg", legenda: "Polimento de faróis" },
     { imagem: "assets/img/exemplo-2.svg", legenda: "Lavagem premium" },
     { imagem: "assets/img/exemplo-3.svg", legenda: "Higienização interna" },
     { imagem: "assets/img/exemplo-4.svg", legenda: "Detalhamento completo" },
