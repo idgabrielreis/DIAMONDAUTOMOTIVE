@@ -168,8 +168,8 @@ const DADOS = {
   // posicao, ex: { imagem: "...", legenda: "...", posicao: "center 30%" }
   galeria: [
     { imagem: "assets/img/depois.jpg", legenda: "Polimento de faróis" },
-    { imagem: "assets/img/exemplo-2.svg", legenda: "Lavagem premium" },
-    { imagem: "assets/img/exemplo-3.svg", legenda: "Higienização interna" },
+    { imagem: "assets/img/cristalizacao.jpg", legenda: "Cristalização" },
+    { imagem: "assets/img/higienizacao.jpg", legenda: "Higienização interna" },
     { imagem: "assets/img/exemplo-4.svg", legenda: "Detalhamento completo" },
     { imagem: "assets/img/exemplo-5.svg", legenda: "Aplicação de cera" },
     { imagem: "assets/img/exemplo-6.svg", legenda: "Motos também!" },
