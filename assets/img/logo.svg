@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 500" width="640" height="500" role="img" aria-label="Diamond Automotive">
+  <defs>
+    <linearGradient id="ouro" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%"   stop-color="#fdf3c4"/>
+      <stop offset="22%"  stop-color="#f2cf62"/>
+      <stop offset="48%"  stop-color="#c9a227"/>
+      <stop offset="72%"  stop-color="#f6e2a0"/>
+      <stop offset="100%" stop-color="#9c7a18"/>
+    </linearGradient>
+    <linearGradient id="ouroLinha" gradientUnits="userSpaceOnUse" x1="96" y1="0" x2="544" y2="0">
+      <stop offset="0%"   stop-color="#8a6c14"/>
+      <stop offset="50%"  stop-color="#f6e2a0"/>
+      <stop offset="100%" stop-color="#8a6c14"/>
+    </linearGradient>
+
+    <!-- gema facetada -->
+    <g id="gema">
+      <path d="M-70 -50 L-38 -95 H38 L70 -50 L0 60 Z" fill="url(#ouro)"/>
+      <g fill="none" stroke="#0b0b0d" stroke-width="4" stroke-linejoin="round">
+        <path d="M-70 -50 L-38 -95 H38 L70 -50 L0 60 Z"/>
+        <path d="M-70 -50 H70"/>
+        <path d="M-38 -95 L-22 -50 L0 60 M38 -95 L22 -50 L0 60"/>
+        <path d="M-22 -50 H22"/>
+      </g>
+    </g>
+
+    <!-- meia ornamentação art déco (espelhada no uso) -->
+    <g id="flor">
+      <g fill="none" stroke="url(#ouro)" stroke-linecap="round">
+        <path d="M6 4 C58 -40 130 -56 196 -40" stroke-width="7"/>
+        <path d="M24 22 C74 -12 132 -26 186 -18" stroke-width="4" opacity=".85"/>
+        <path d="M196 -40 C214 -36 222 -22 216 -8 C210 4 194 4 190 -6 C186 -15 196 -22 203 -17" stroke-width="4"/>
+        <path d="M6 4 C-8 8 -14 20 -8 30 C-2 39 12 37 14 28" stroke-width="4"/>
+      </g>
+      <g fill="url(#ouro)">
+        <path d="M52 -14 c16 -16 42 -24 62 -18 c-18 14 -42 22 -62 18z"/>
+        <path d="M112 -34 c14 -14 36 -20 54 -15 c-16 12 -37 19 -54 15z"/>
+        <path d="M40 12 c12 -12 32 -18 47 -14 c-13 10 -31 16 -47 14z" opacity=".75"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- ornamento superior -->
+  <g transform="translate(320,150)">
+    <use href="#gema" transform="scale(0.86)"/>
+    <g transform="translate(72,36) scale(.82)"><use href="#flor"/></g>
+    <g transform="translate(-72,36) scale(-.82,.82)"><use href="#flor"/></g>
+  </g>
+
+  <!-- filetes -->
+  <g stroke="url(#ouroLinha)" stroke-width="3">
+    <path d="M96 205 H544"/>
+    <path d="M96 352 H544"/>
+  </g>
+  <g fill="url(#ouro)">
+    <circle cx="96" cy="205" r="5"/><circle cx="544" cy="205" r="5"/>
+    <circle cx="96" cy="352" r="5"/><circle cx="544" cy="352" r="5"/>
+  </g>
+
+  <!-- marca -->
+  <text x="320" y="285" text-anchor="middle" fill="url(#ouro)"
+        font-family="Syne, Optima, Candara, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="78" font-weight="500" letter-spacing="9">DIAMOND</text>
+  <text x="320" y="334" text-anchor="middle" fill="url(#ouro)"
+        font-family="Outfit, Optima, Candara, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="400" letter-spacing="17">AUTOMOTIVE</text>
+
+  <!-- ornamento inferior (espelhado) -->
+  <g transform="translate(320,428)">
+    <use href="#gema" transform="scale(0.86)"/>
+    <g transform="translate(72,-36) scale(.82,-.82)"><use href="#flor"/></g>
+    <g transform="translate(-72,-36) scale(-.82,-.82)"><use href="#flor"/></g>
+  </g>
+</svg>

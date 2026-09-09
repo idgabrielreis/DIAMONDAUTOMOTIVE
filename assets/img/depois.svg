@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="DEPOIS">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#0d1420"/><stop offset="100%" stop-color="#0b0b0d"/>
+</linearGradient>
+<linearGradient id="ouro" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#f6e2a0"/><stop offset="55%" stop-color="#c9a227"/><stop offset="100%" stop-color="#7a5f12"/>
+</linearGradient>
+<radialGradient id="luz" cx="50%" cy="18%" r="70%">
+  <stop offset="0%" stop-color="#ffffff" stop-opacity=".16"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<pattern id="grade" width="48" height="48" patternUnits="userSpaceOnUse">
+  <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+</pattern>
+</defs>
+<rect width="800" height="600" fill="url(#bg)"/>
+<rect width="800" height="600" fill="url(#grade)"/>
+<rect width="800" height="600" fill="url(#luz)"/>
+<g transform="translate(200,130) scale(1.0)" opacity="0.95">
+<path d="M60 210c0-14 6-26 14-38l30-46c8-12 20-19 34-19h124c14 0 27 7 35 19l30 46c8 12 14 24 14 38v34c0 8-6 14-14 14h-15a30 30 0 0 1-60 0H149a30 30 0 0 1-60 0H74c-8 0-14-6-14-14z" fill="none" stroke="#f6e2a0" stroke-width="4" stroke-linejoin="round"/>
+<path d="M110 168l22-36c4-7 11-11 19-11h98c8 0 15 4 19 11l22 36z" fill="none" stroke="#f6e2a0" stroke-width="3.4"/>
+<circle cx="119" cy="244" r="17" fill="none" stroke="#f6e2a0" stroke-width="4"/>
+<circle cx="281" cy="244" r="17" fill="none" stroke="#f6e2a0" stroke-width="4"/>
+</g>
+<g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+  <text x="400" y="470" fill="url(#ouro)" font-size="34" font-weight="700" letter-spacing="6">DEPOIS</text>
+  <text x="400" y="506" fill="#9a9aa3" font-size="19" letter-spacing="2">foto do carro depois do serviço</text>
+</g>
+<path d="M370 60h60l30 26-60 46-60-46z" fill="none" stroke="url(#ouro)" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M340 86h120M370 60l14 26-14 46M430 60l-14 26 14 46" fill="none" stroke="url(#ouro)" stroke-width="1.4" opacity=".7"/>
+</svg>
