@@ -90,12 +90,26 @@
   }).join("");
 
   /* -------------------------------------------------------------- galeria */
-  var fotos = D.galeria || [];
-  $("#galeria").innerHTML = fotos.map(function (f, i) {
-    return '<figure class="shot reveal" data-i="' + i + '">' +
-             '<img src="' + esc(f.imagem) + '" alt="' + esc(f.legenda) + '" loading="lazy"' +
-               (f.posicao ? ' style="object-position:' + esc(f.posicao) + '"' : "") + ">" +
-             "<figcaption>" + esc(f.legenda) + "</figcaption>" +
+  var quadros = D.galeria || [];
+
+  // cada quadro pode ter fotos extras; "fotos" é a lista que a ampliação
+  // percorre, e cada quadro guarda em qual foto a ampliação começa
+  var fotos = [];
+  quadros.forEach(function (q) {
+    q.inicio = fotos.length;
+    fotos.push({ imagem: q.imagem, legenda: q.legenda });
+    (q.tambem || []).forEach(function (extra) {
+      fotos.push({ imagem: extra, legenda: q.legenda });
+    });
+  });
+
+  $("#galeria").innerHTML = quadros.map(function (q) {
+    return '<figure class="shot reveal" data-i="' + q.inicio + '">' +
+             '<img src="' + esc(q.imagem) + '" alt="' + esc(q.legenda) + '" loading="lazy"' +
+               (q.posicao ? ' style="object-position:' + esc(q.posicao) + '"' : "") + ">" +
+             "<figcaption>" + esc(q.legenda) +
+               ((q.tambem || []).length ? ' <span class="shot__mais">+' + q.tambem.length + "</span>" : "") +
+             "</figcaption>" +
            "</figure>";
   }).join("");
 

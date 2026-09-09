@@ -172,6 +172,13 @@ const DADOS = {
     { imagem: "assets/img/higienizacao.jpg", legenda: "Higienização interna" },
     { imagem: "assets/img/detalhamento.jpg", legenda: "Detalhamento completo" },
     { imagem: "assets/img/motos.jpg", legenda: "Moto também é com a gente" },
+    // "tambem" = fotos extras do mesmo trabalho. O quadro na galeria
+    // mostra a foto principal; as extras aparecem quando o cliente abre.
+    {
+      imagem: "assets/img/cera-depois.jpg",
+      legenda: "Aplicação de cera",
+      tambem: ["assets/img/cera-antes.jpg"],
+    },
   ],
 
   /* --------------------------------------------------- ANTES x DEPOIS */
@@ -193,13 +200,6 @@ const DADOS = {
         legenda: "Polimento de faróis",
         antes: "assets/img/antes.jpg",
         depois: "assets/img/depois.jpg",
-        proporcao: "3/4",
-        enquadramento: "center",
-      },
-      {
-        legenda: "Aplicação de cera",
-        antes: "assets/img/cera-antes.jpg",
-        depois: "assets/img/cera-depois.jpg",
         proporcao: "3/4",
         enquadramento: "center",
       },
