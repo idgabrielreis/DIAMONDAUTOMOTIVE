@@ -99,8 +99,10 @@
     q.inicio = fotos.length;
     fotos.push({ imagem: q.imagem, legenda: q.legenda });
     (q.tambem || []).forEach(function (extra) {
-      fotos.push({ imagem: extra, legenda: q.legenda });
+      if (typeof extra === "string") extra = { imagem: extra };
+      fotos.push({ imagem: extra.imagem, legenda: extra.legenda || q.legenda });
     });
+    q.total = fotos.length - q.inicio;
   });
 
   $("#galeria").innerHTML = quadros.map(function (q) {
@@ -108,8 +110,10 @@
              '<img src="' + esc(q.imagem) + '" alt="' + esc(q.legenda) + '" loading="lazy"' +
                (q.posicao ? ' style="object-position:' + esc(q.posicao) + '"' : "") + ">" +
              "<figcaption>" + esc(q.legenda) +
-               ((q.tambem || []).length ? ' <span class="shot__mais">+' + q.tambem.length + "</span>" : "") +
              "</figcaption>" +
+             (q.total > 1
+               ? '<span class="shot__conta">' + q.total + " fotos</span>"
+               : "") +
            "</figure>";
   }).join("");
 
@@ -204,7 +208,8 @@
     atual = (i + fotos.length) % fotos.length;
     lbImg.src = fotos[atual].imagem;
     lbImg.alt = fotos[atual].legenda || "";
-    lbCap.textContent = fotos[atual].legenda || "";
+    lbCap.textContent = (fotos[atual].legenda || "") +
+      (fotos.length > 1 ? "  ·  " + (atual + 1) + " / " + fotos.length : "");
     lb.hidden = false;
     document.body.style.overflow = "hidden";
   }

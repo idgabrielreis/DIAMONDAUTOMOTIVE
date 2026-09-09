@@ -172,12 +172,17 @@ const DADOS = {
     { imagem: "assets/img/higienizacao.jpg", legenda: "Higienização interna" },
     { imagem: "assets/img/detalhamento.jpg", legenda: "Detalhamento completo" },
     { imagem: "assets/img/motos.jpg", legenda: "Moto também é com a gente" },
-    // "tambem" = fotos extras do mesmo trabalho. O quadro na galeria
-    // mostra a foto principal; as extras aparecem quando o cliente abre.
+    // "tambem" = fotos extras do mesmo trabalho. O quadro na galeria mostra
+    // a foto principal; as extras aparecem quando o cliente clica e passa
+    // com as setinhas. Cada extra pode ter a sua própria legenda.
     {
-      imagem: "assets/img/cera-depois.jpg",
-      legenda: "Aplicação de cera",
-      tambem: ["assets/img/cera-antes.jpg"],
+      imagem: "assets/img/cera-depois-2.jpg",
+      legenda: "Aplicação de cera — depois",
+      tambem: [
+        { imagem: "assets/img/cera-antes-2.jpg",  legenda: "Aplicação de cera — antes" },
+        { imagem: "assets/img/cera-depois.jpg",   legenda: "Cera na moto — depois" },
+        { imagem: "assets/img/cera-antes.jpg",    legenda: "Cera na moto — antes" },
+      ],
     },
   ],
 

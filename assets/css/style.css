@@ -252,9 +252,14 @@ em{ font-style:normal; }
   background:linear-gradient(transparent,rgba(0,0,0,.85)); translate:0 8px; opacity:0; transition:.35s;
 }
 .shot:hover figcaption{ translate:0 0; opacity:1; }
-.shot__mais{
-  display:inline-block; margin-left:6px; padding:2px 8px; border-radius:999px;
-  background:var(--grad-ouro); color:#150f00; font-size:.72rem; font-weight:600;
+.shot__conta{
+  position:absolute; top:12px; right:12px; padding:5px 11px; border-radius:999px;
+  background:rgba(8,8,10,.66); border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(6px); font-size:.74rem; letter-spacing:.04em; color:var(--branco);
+}
+/* em celular não existe passar o mouse, então a legenda fica sempre à vista */
+@media (hover:none){
+  .shot figcaption{ opacity:1; translate:0 0; }
 }
 
 /* ---------------------------------------------------------------- SOBRE */
