@@ -68,6 +68,7 @@ const DADOS = {
     "POLIMENTO",
     "HIGIENIZAÇÃO INTERNA",
     "APLICAÇÃO DE CERA",
+    "POLIMENTO DE FARÓIS",
     "LAVAGEM SIMPLES",
     "DETALHAMENTO",
   ],
@@ -97,6 +98,14 @@ const DADOS = {
       nome: "Polimento",
       descricao:
         "Remoção de riscos leves, marcas de lavagem e oxidação. A pintura volta a refletir como espelho.",
+      preco: "Sob consulta",
+      destaque: false,
+    },
+    {
+      icone: "🔦",
+      nome: "Polimento de Faróis",
+      descricao:
+        "Farol amarelado e opaco volta a ficar transparente. Melhora o visual do carro e, principalmente, a luz à noite.",
       preco: "Sob consulta",
       destaque: false,
     },
@@ -169,8 +178,16 @@ const DADOS = {
   // deixe "ativo: false".
   antesDepois: {
     ativo: true,
-    antes: "assets/img/antes.svg",
-    depois: "assets/img/depois.svg",
+    // Salve suas duas fotos na pasta assets/img com estes nomes
+    // (ou troque os nomes aqui). Enquanto os arquivos não existirem,
+    // o site mostra a imagem de exemplo sozinho.
+    antes: "assets/img/antes.jpg",
+    depois: "assets/img/depois.jpg",
+    // Texto que aparece acima da comparação:
+    legenda: "Polimento de faróis",
+    // Formato das fotos: "3/4" para foto de celular em pé,
+    // "4/3" ou "16/9" para foto deitada.
+    proporcao: "3/4",
   },
 
   /* ---------------------------------------------------------- DEPOIMENTOS */

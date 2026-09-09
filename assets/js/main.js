@@ -15,6 +15,12 @@
   };
   var set = function (sel, txt) { $$(sel).forEach(function (el) { el.textContent = txt; }); };
 
+  // troca a imagem pela de exemplo se o arquivo não existir
+  function reserva(img, caminho, exemplo) {
+    img.onerror = function () { img.onerror = null; img.src = exemplo; };
+    img.src = caminho;
+  }
+
   /* --------------------------------------------------- link do WhatsApp */
   var linkZap = "https://wa.me/" + D.contato.whatsapp +
                 "?text=" + encodeURIComponent(D.contato.mensagemWhatsapp || "");
@@ -126,8 +132,18 @@
   if (ad.ativo) {
     var box = $("#compare");
     $("#antesdepois").hidden = false;
-    $("#cmp-antes").src = ad.antes;
-    $("#cmp-depois").src = ad.depois;
+
+    // se a foto ainda não foi colocada na pasta, mostra a imagem de exemplo
+    reserva($("#cmp-antes"), ad.antes, "assets/img/antes.svg");
+    reserva($("#cmp-depois"), ad.depois, "assets/img/depois.svg");
+
+    if (ad.legenda) $("#cmp-legenda").textContent = ad.legenda;
+
+    if (ad.proporcao) {
+      box.style.aspectRatio = ad.proporcao.replace("/", " / ");
+      var parte = ad.proporcao.split("/");
+      if (+parte[0] < +parte[1]) box.classList.add("compare--retrato");
+    }
 
     var largura = function () {
       box.style.setProperty("--cmp-w", box.offsetWidth + "px");
@@ -154,6 +170,10 @@
     document.body.style.overflow = "hidden";
   }
   function fechar() { lb.hidden = true; document.body.style.overflow = ""; }
+
+  $$(".shot img").forEach(function (img) {
+    img.onerror = function () { img.onerror = null; img.src = "assets/img/exemplo-1.svg"; };
+  });
 
   $$(".shot").forEach(function (fig) {
     fig.addEventListener("click", function () { abrir(+fig.dataset.i); });
