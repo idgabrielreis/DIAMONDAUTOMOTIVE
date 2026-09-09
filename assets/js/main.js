@@ -93,7 +93,8 @@
   var fotos = D.galeria || [];
   $("#galeria").innerHTML = fotos.map(function (f, i) {
     return '<figure class="shot reveal" data-i="' + i + '">' +
-             '<img src="' + esc(f.imagem) + '" alt="' + esc(f.legenda) + '" loading="lazy">' +
+             '<img src="' + esc(f.imagem) + '" alt="' + esc(f.legenda) + '" loading="lazy"' +
+               (f.posicao ? ' style="object-position:' + esc(f.posicao) + '"' : "") + ">" +
              "<figcaption>" + esc(f.legenda) + "</figcaption>" +
            "</figure>";
   }).join("");
@@ -138,6 +139,11 @@
     reserva($("#cmp-depois"), ad.depois, "assets/img/depois.svg");
 
     if (ad.legenda) $("#cmp-legenda").textContent = ad.legenda;
+    if (ad.enquadramento) {
+      $$("#compare .compare__img").forEach(function (img) {
+        img.style.objectPosition = ad.enquadramento;
+      });
+    }
 
     if (ad.proporcao) {
       box.style.aspectRatio = ad.proporcao.replace("/", " / ");

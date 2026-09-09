@@ -164,6 +164,8 @@ const DADOS = {
   // 1. Coloque suas imagens dentro da pasta "assets/img".
   // 2. Escreva o nome do arquivo aqui, ex: "assets/img/mustang.jpg".
   // 3. "legenda" é o texto que aparece quando passa o mouse.
+  // Dá para ajustar o corte de uma foto específica acrescentando
+  // posicao, ex: { imagem: "...", legenda: "...", posicao: "center 30%" }
   galeria: [
     { imagem: "assets/img/exemplo-1.svg", legenda: "Polimento + cristalização" },
     { imagem: "assets/img/exemplo-2.svg", legenda: "Lavagem premium" },
@@ -188,6 +190,10 @@ const DADOS = {
     // Formato das fotos: "3/4" para foto de celular em pé,
     // "4/3" ou "16/9" para foto deitada.
     proporcao: "3/4",
+    // O site corta as sobras da foto (inclusive tarja preta de print
+    // de celular) e mostra o meio dela. Se o farol ficar cortado,
+    // use "center 35%" para subir o corte ou "center 65%" para descer.
+    enquadramento: "center",
   },
 
   /* ---------------------------------------------------------- DEPOIMENTOS */
